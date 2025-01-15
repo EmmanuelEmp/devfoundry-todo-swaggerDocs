@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "baseUrl": "./src",
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+      
+    ],
+    "types": []
+    // "paths": {
+    //   "@config/*": ["config/*"],
+    //   "@controllers/*": ["controllers/*"],
+    //   "@middleware/*": ["middleware/*"],
+    //   "@model/*": ["model/*"],
+    //   "@routes/*": ["routes/*"],
+    //   "@utils/*": ["utils/*"]
+    // }
+  },
+  "include": [
+    "src",
+    "src/model/interfaces/custom.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}
+
