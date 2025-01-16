@@ -94,7 +94,7 @@ export const getUserProfile = async (req: Request, res: Response): Promise<void>
       throw new Error("Unauthorized");
     }
   
-    const user = await User.findById(req.user._id).select("-password"); // Exclude password
+    const user = await User.findById(req.user._id).select("-password");
   
     if (!user) {
       res.status(404);

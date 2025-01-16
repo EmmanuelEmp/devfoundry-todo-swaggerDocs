@@ -12,21 +12,21 @@ const options: swaggerJsdoc.Options = {
             version,
         },
         components: {
-            securitySchemes: { // Corrected key name to "securitySchemes"
+            securitySchemes: {
                 bearerAuth: {
                     type: "http",
-                    scheme: "bearer", // Fixed typo: "schema" -> "scheme"
+                    scheme: "bearer",
                     bearerFormat: "JWT",
                 },
             },
         },
         security: [
             {
-                bearerAuth: [], // Applies bearerAuth globally to routes requiring authentication
+                bearerAuth: [], // for authenticated routes
             },
         ],
     },
-    apis: ['./src/routes/*.ts'], // Ensure this matches your actual route file paths
+    apis: ['./src/routes/*.ts'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);

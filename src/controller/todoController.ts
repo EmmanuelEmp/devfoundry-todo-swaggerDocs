@@ -9,7 +9,7 @@ export const createTask = async (req: Request, res: Response): Promise<void>=> {
   try {
     const { task, start, stop } = req.body;
     // Get the user ID from the authenticated request
-    const userId = req.user?.id; // Assuming `req.user` contains the authenticated user's details
+    const userId = req.user?.id; 
 
     if (!userId) {
       res.status(401).json({ message: 'Unauthorized' });
@@ -77,7 +77,7 @@ export const viewAllTasks = async (req: Request, res: Response): Promise<void>=>
 export const updateTask = async (req: Request, res: Response): Promise<void>=> {
   try {
     const { id } = req.params; // Get task ID from route params
-    const userId = req.user?.id; // Assuming `req.user` contains the authenticated user's details
+    const userId = req.user?.id; 
     const { task, start, stop } = req.body;
 
     if (!userId) {
@@ -115,7 +115,7 @@ export const updateTask = async (req: Request, res: Response): Promise<void>=> {
 export const deleteTask = async (req: Request, res: Response): Promise<void>=> {
   try {
     const { id } = req.params; // Get task ID from route params
-    const userId = req.user?.id; // Assuming `req.user` contains the authenticated user's details
+    const userId = req.user?.id;
 
     if (!userId) {
       res.status(401).json({ message: 'Unauthorized' });

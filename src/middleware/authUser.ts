@@ -19,7 +19,7 @@ const authUser = async (req: Request, res: Response, next: NextFunction): Promis
 
         // Verify the token
         const decoded: any = jwt.verify(token, process.env.SECRET_KEY as string);
-        
+
         const user = await User.findById(decoded.userId).select("-password");
         if (!user) {
             res.status(401);
@@ -30,7 +30,7 @@ const authUser = async (req: Request, res: Response, next: NextFunction): Promis
         req.user = user;
         next();
     } catch (error) {
-        res.status(401); // Unauthorized
+        res.status(401); 
         next(new Error("Invalid token"));
     }
 };
