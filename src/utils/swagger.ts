@@ -31,7 +31,7 @@ const options: swaggerJsdoc.Options = {
               description: "Local server",
             },
             {
-              url: "https://devfoundry-todo-swaggerdocs-6.onrender.com/docs", // Hosted server
+              url: "https://devfoundry-todo-swaggerdocs-6.onrender.com", // Hosted server
               description: "Hosted server",
             },
           ],
@@ -43,7 +43,7 @@ const swaggerSpec = swaggerJsdoc(options);
 
 // Function to set up Swagger docs
 function swaggerDocs(app: Express, PORT: number) {
-    app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
     app.get("/docs.json", (req: Request, res: Response) => {
         res.setHeader("Content-Type", "application/json");

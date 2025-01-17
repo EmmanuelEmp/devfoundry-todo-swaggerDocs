@@ -27,10 +27,10 @@ swaggerDocs(app, PORT);
 app.use("/api/users", userRoutes);
 app.use("/api/todo", todoRoutes);
 
-// Redirect root URL ("/") to Swagger UI ("/docs")
-app.get("/", (req: Request, res: Response) => {
-  res.redirect("/docs");
-});
+// // Redirect root URL ("/") to Swagger UI ("/docs")
+// app.get("/", (req: Request, res: Response) => {
+//   res.redirect("/docs");
+// });
 
 app.use(notFound);
 app.use(errorHandler);
