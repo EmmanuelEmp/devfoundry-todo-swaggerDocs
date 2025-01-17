@@ -8,6 +8,10 @@ import generateToken from '../utils/generateToken';
 export const createUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { firstName, lastName, email, password } = req.body;
+    if (!firstName || !lastName || !email || !password) {
+      res.status(400).json({ message: "fill all fields" });
+      return;
+    }
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
@@ -47,6 +51,10 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
+    if (!email || !password) {
+      res.status(400).json({ message: "Email and password are required" });
+      return;
+    }
 
     const user = await User.findOne({ email });
 
@@ -62,7 +70,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
       });
       return
     } else {
-      res.status(400).json({ message: "Invalid email or password" });
+      res.status(401).json({ message: "Invalid email or password" });
       return
     }
   } catch (error) {

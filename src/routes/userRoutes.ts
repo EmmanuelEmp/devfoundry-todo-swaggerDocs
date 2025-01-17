@@ -33,6 +33,7 @@ router.get("/healthcheck", (req: Request, res: Response) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             title: UserRegistration
  *             properties:
  *               firstName:
  *                 type: string
@@ -62,22 +63,13 @@ router.post('/register', createUser);
  *   post:
  *     tags:
  *       - User
- *     summary: login a user
+ *     summary: Login a user
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *                 format: email
- *                 example: john.doe@gmail.com
- *               password:
- *                 type: string
- *                 format: password
- *                 example: strongpassword123
+ *             $ref: '#/components/schemas/UserLogin'
  *     responses:
  *       200:
  *         description: User successfully logged in
@@ -86,6 +78,7 @@ router.post('/register', createUser);
  *       404:
  *         description: User not found
  */
+
 
 router.post('/login', loginUser);
 /**
