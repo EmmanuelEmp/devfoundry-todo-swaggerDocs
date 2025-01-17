@@ -25,6 +25,16 @@ const options: swaggerJsdoc.Options = {
                 bearerAuth: [], // for authenticated routes
             },
         ],
+        servers: [
+            {
+              url: "http://localhost:3000", // Local server
+              description: "Local server",
+            },
+            {
+              url: "https://devfoundry-todo-swaggerdocs-6.onrender.com/docs", // Hosted server
+              description: "Hosted server",
+            },
+          ],
     },
     apis: ['./src/routes/*.ts'],
 };
