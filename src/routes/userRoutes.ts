@@ -27,6 +27,7 @@ router.get("/healthcheck", (req: Request, res: Response) => {
  *     tags:
  *       - User
  *     summary: Register a user
+ *     security: []
  *     requestBody:
  *       required: true
  *       content:
@@ -64,6 +65,7 @@ router.post('/register', createUser);
  *     tags:
  *       - User
  *     summary: Login a user
+ *     security: []
  *     requestBody:
  *       required: true
  *       content:
